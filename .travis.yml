@@ -13,3 +13,8 @@ before_install:
 script:
   - ./mvnw clean install
   - ./mvnw heroku:deploy jib:build -P deploy-heroku,deploy-docker
+
+deploy:
+  provider: heroku
+  api_key: echo "$HEROKU_API_KEY"
+  app: bhbank-ci-cd-process
